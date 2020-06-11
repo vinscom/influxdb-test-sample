@@ -1,0 +1,23 @@
+version: '2.0'
+services:
+  influxdb:
+    image: influxdb
+    ports:
+      - "8086:8086"
+      - "2003:2003"
+    volumes: 
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf:ro
+  chronograf:
+    image: chronograf
+    ports: 
+      - "8888:8888"
+  #kapacitor:
+  #  image: kapacitor
+  #  ports: 
+  #    - "9092:9092"
+  #  environment: 
+  #    - KAPACITOR_INFLUXDB_0_URLS   _0=http://192.168.0.10:8086
+  # cb-core:
+  #  build: .
+  #  ports: 
+  #    - "8889:8889"
